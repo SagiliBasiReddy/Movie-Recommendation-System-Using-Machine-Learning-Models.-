@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommendation System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 30px;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            margin-bottom: 30px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            width: 300px;
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .results {
+            margin-top: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: #fff;
+            margin: 5px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Movie Recommendation System</h1>
+    
+    <!-- Movie title input form -->
+    <form method="POST">
+        <input type="text" name="movie" placeholder="Enter movie title" required>
+        <button type="submit">Recommend</button>
+    </form>
+
+    <!-- Display recommended movies -->
+    {% if recommendations %}
+        <div class="results">
+            <h2>Recommended Movies:</h2>
+            <ul>
+                {% for movie in recommendations %}
+                    <li>{{ movie }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+
+</body>
+</html>
